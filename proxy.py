@@ -5,6 +5,10 @@ app = FastAPI()
 
 TMDB_TOKEN = os.getenv("TMDB_TOKEN")
 
+@app.get("/")
+def root():
+    return {"message": "TMDb Proxy is running!"}
+
 @app.get("/movies")
 def get_movies():
     url = "https://api.themoviedb.org/3/discover/movie?language=hi-IN&sort_by=popularity.desc"
